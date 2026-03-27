@@ -1,6 +1,6 @@
 # 像安装 Arch 一样通过 debootstrap 手动安装 Debian 13 (Trixie)
 
-这篇教程将带你从零开始，在 Live CD 环境下通过 `debootstrap` 手动打造一个极致纯净的 Debian 13 系统。我们将采用 Btrfs (开启 zstd 压缩) + systemd-boot 引导，并最小化安装 KDE Plasma 桌面与 Kitty 终端。
+这篇教程将带你从零开始，在 Live CD 环境下通过 `debootstrap` 手动打造一个极致纯净的 Debian 13 系统。我们将采用 Btrfs (开启 zstd 压缩) + systemd-boot 引导，并最小化安装 KDE Plasma 桌面。
 
 > **⚠️ 重要提示**：本教程假设你的 NVMe 硬盘为 `/dev/nvme0n1`，已存在的 Windows EFI 分区为 `/dev/nvme0n1p1`，空闲空间用于新建 Debian 根分区 `/dev/nvme0n1p3`。在执行涉及磁盘格式化的命令前，请务必使用 `lsblk` 确认你自己的设备路径，避免误伤数据。
 
