@@ -42,7 +42,13 @@ sudo apt install openssh-server
 sudo nano /etc/ssh/sshd_config
 ```
 
-调整 `PermitRootLogin` 为 `yes`，`PermitEmptyPasswords` 为 `yes`
+调整 `PermitRootLogin` 为 `yes`
+
+设置 root 用户密码
+
+```bash
+sudo passwd root
+```
 
 开启 ssh 服务
 
@@ -50,7 +56,7 @@ sudo nano /etc/ssh/sshd_config
 sudo systemctl start sshd
 ```
 
-在电脑上使用任意工具使用 ssh 连接 Live CD 环境，可以使用 `ip a` 查看自己的 ip 地址
+在电脑上使用任意工具使用 ssh 登录 root 用户连接 Live CD 环境，可以使用 `ip a` 查看自己的 ip 地址
 
 ### 第二步：磁盘分区与格式化
 
