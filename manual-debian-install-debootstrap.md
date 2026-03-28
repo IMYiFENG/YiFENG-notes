@@ -193,7 +193,7 @@ dpkg-reconfigure locales
 设置主机名
 
 ```bash
-echo "debian-trixie" > /etc/hostname
+echo "<你的主机名>" > /etc/hostname
 ```
 
 设置 root 密码
@@ -279,7 +279,7 @@ passwd <你的用户名>
 ```bash
 systemctl enable NetworkManager
 
-systemctl enable sshd
+systemctl enable ssh
 ```
 
 ### 第八步：退出并重启
@@ -323,9 +323,9 @@ sudo vim /etc/snapper/configs/home
 创建快照
 
 ```bash
-snapper -c root create -d "before desktop"
+sudo snapper -c root create -d "before desktop"
 
-snapper -c home create -d "before desktop"
+sudo snapper -c home create -d "before desktop"
 ```
 
 启用自动快照与清理服务
@@ -336,29 +336,17 @@ sudo systemctl enable --now snapper-timeline.timer
 sudo systemctl enable --now snapper-cleanup.timer
 ```
 
-### 第十步：安装 KDE Plasma 与 Kitty 终端
-
-避开臃肿的元软件包，我们只安装最核心的组件来实现现代化的桌面体验。
+### 第十步：安装 KDE Plasma 桌面
 
 ```bash
 sudo apt install kde-plasma-desktop sddm
 ```
 
-> 如果想要 Wayland 会话，可以额外安装 `plasma-workspace-wayland`
-
-安装音频组件和中文字体
+安装音频组件
 
 ```bash
-sudo apt install pipewire-audio pipewire-pulse fonts-noto-cjk
+sudo apt install pipewire-audio
 ```
-
-安装终端
-
-```bash
-sudo apt install konsole
-```
-
-> 我个人更喜欢 kitty
 
 启用 SDDM 登录管理器
 
